@@ -1,76 +1,21 @@
 [
-
 {
-	"name": "",
-	"street": "",
+	"name": "Red Rooster",
+	"street": "310 Malcolm X Blvd",
 	"city": "New York",
 	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
+	"zip": "10027",
+	"url": "https://www.redroosterharlem.com/",
+	"pos": {"lat": 40.808973, "lng": -73.944934} 
 },
 {
-	"name": "",
-	"street": "",
+	"name": "Lenox Saphire",
+	"street": "345 Malcolm X Blvd",
 	"city": "New York",
 	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-{
-	"name": "",
-	"street": "",
-	"city": "New York",
-	"state": "NY",
-	"zip": "",
-	"url": "",
-	"pos": {"lat": , "lng": }
-},
-
+	"zip": "10027",
+	"url": "https://www.lenoxsaphireharlem.com/",
+	"pos": {"lat": 40.809463, "lng": -73.944737} 
+}
+ 
 ]
