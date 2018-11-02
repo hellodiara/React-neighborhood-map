@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import(Map, GoogleApiWrapper) from 'google-maps-react';
+import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 const MAP_KEY = "AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
 
@@ -42,5 +42,7 @@ class MapDisplay extends Component {
 	}
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY})(MapDisplay)
+export default GoogleApiWrapper({
+	apiKey: MAP_KEY
+})(MapDisplay)
 
