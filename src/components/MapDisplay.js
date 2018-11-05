@@ -1,48 +1,43 @@
 import React, { Component } from 'react';
-import {Map, GoogleApiWrapper} from 'google-maps-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-const MAP_KEY = "AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
+const style = {
+  width: '100%',
+  height: '100%'
+}
+const MAP_KEY ="AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
 
-class MapDisplay extends Component {
-	state = {
-		map: null
-	};
+export class MapContainer extends Component {
 
-	componentDidMount = () => {
+  render() {
+    return (
+        <Map 
+        	google={this.props.google}
+          style={style} 
+        	initialCenter={{
+        		lat: 40.810629,
+        		lng: -73.950192
+        	}}
+          zoom={15}
+        	onClick={this.onMapClicked}
+        	>
 
-	}
+        <Marker 
+        onClick={this.onMarkerClick}
+        title={'Test'}
+        name={'Apollo Theather'} 
+        position={{lat:40.810629, lng:-73.950192}}/>
 
-	mapReady = (props, map) => {
-		this.setState({map});
-	}
-	render = () => {
-		const style = {
-			width: '100%',
-			height: '100%'
-		}
-
-		const center = {
-			lat: this.props.lat,
-			lng: this.props.lon
-		}
-
-		return (
-			<Map 
-				role="application"
-				aria-label="map"
-				onReady={this.mapReady}
-				google={this.props.google}
-				zoom={this.props.zoom}
-				styel={style}
-				initialCenter={center}
-				onClick={this.closeInfoWindow}
-				>
-			</Map>
-		)
-	}
+        <InfoWindow onClose={this.onInfoWindowClose}>
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+        </InfoWindow>
+      </Map>
+    );
+  }
 }
 
 export default GoogleApiWrapper({
-	apiKey: MAP_KEY
-})(MapDisplay)
-
+  apiKey: MAP_KEY
+})(MapContainer)

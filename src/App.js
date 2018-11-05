@@ -6,10 +6,10 @@ import MapDisplay from './components/MapDisplay';
 
 class App extends Component {
   state = {
-    lat: 59.95,
-    lng: 30.33,
-    zoom: 11,
-
+    lat: 40.810629,
+    lng: -73.950192,
+    zoom: 15,
+    all: locations
   }
 
   render = () => {
@@ -21,6 +21,7 @@ class App extends Component {
           <MapDisplay
             lat={this.state.lat}
             lng={this.state.lng}
+            zoom={this.state.zoom}
             locations={this.state.all}
           />
       </div>
