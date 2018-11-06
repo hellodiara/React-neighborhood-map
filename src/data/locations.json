@@ -1,21 +1,98 @@
 [
-{
-	"name": "Red Rooster",
-	"street": "310 Malcolm X Blvd",
-	"city": "New York",
-	"state": "NY",
-	"zip": "10027",
-	"url": "https://www.redroosterharlem.com/",
-	"pos": {"lat": 40.808973, "lng": -73.944934} 
-},
-{
-	"name": "Lenox Saphire",
-	"street": "345 Malcolm X Blvd",
-	"city": "New York",
-	"state": "NY",
-	"zip": "10027",
-	"url": "https://www.lenoxsaphireharlem.com/",
-	"pos": {"lat": 40.809463, "lng": -73.944737} 
-}
- 
+	{
+		"name": "Apollo Theather",
+		"street": "253 W. 125th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.apollotheater.org/",
+		"pos": {"lat": 40.810142, "lng": -73.950111} 
+	},
+	{
+		"name": "Red Rooster",
+		"street": "310 Malcolm X Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.redroosterharlem.com/",
+		"pos": {"lat": 40.808209, "lng": -73.944935} 
+	},
+	{
+		"name": "Lenox Saphire",
+		"street": "345 Malcolm X Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.lenoxsaphireharlem.com/",
+		"pos": {"lat": 40.809463, "lng": -73.944737} 
+	},
+	{
+		"name": "Sylvia's",
+		"street": "328 Malcolm X Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.sylviasrestaurant.com/",
+		"pos": {"lat": 40.808778, "lng": -73.944623} 
+	},
+	{
+		"name": "Harlem Shake",
+		"street": "100 W 124th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.harlemshakenyc.com/",
+		"pos": {"lat": 40.807137, "lng": -73.946345} 
+	},
+	{
+		"name": "National Jazz Museum",
+		"street": "58 W 129th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.jazzmuseuminharlem.org/",
+		"pos": {"lat": 40.809931, "lng": -73.943116} 
+	},
+	{
+		"name": "Jacob",
+		"street": "373 Malcolm X Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.jacobrestaurant.com/",
+		"pos": {"lat": 40.810345, "lng": -73.943931} 
+	},
+	{
+		"name": "Shrine",
+		"street": "2271 Adam Clayton Powell Jr Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10030",
+		"url": "https://www.shrinenyc.com/",
+		"pos": {"lat": 40.814381, "lng": -73.944135} 
+	},
+	{
+		"name": "Striver's Row",
+		"street": "W 138th and W 139th Street",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10030",
+		"pos": {"lat": 40.817405, "lng": -73.942391} 
+	},
+	{
+		"name": "Abyssinian Baptist Church",
+		"street": "132 W 138th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10030",
+		"pos": {"lat": 40.816853, "lng": -73.941524} 
+	},
+	{
+		"name": "Marcus Garvey Park",
+		"street": "6316, Mt Morris Park W.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"pos": {"lat": 40.804631, "lng": -73.943673} 
+	}
 ]
