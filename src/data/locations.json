@@ -5,7 +5,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.apollotheater.org/",
+		"url": "https://www.apollotheater.org",
 		"pos": {"lat": 40.810142, "lng": -73.950111} 
 	},
 	{
@@ -14,7 +14,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.redroosterharlem.com/",
+		"url": "https://www.redroosterharlem.com",
 		"pos": {"lat": 40.808209, "lng": -73.944935} 
 	},
 	{
@@ -23,7 +23,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.lenoxsaphireharlem.com/",
+		"url": "https://www.lenoxsaphireharlem.com",
 		"pos": {"lat": 40.809463, "lng": -73.944737} 
 	},
 	{
@@ -32,7 +32,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.sylviasrestaurant.com/",
+		"url": "https://www.sylviasrestaurant.com",
 		"pos": {"lat": 40.808778, "lng": -73.944623} 
 	},
 	{
@@ -41,7 +41,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.harlemshakenyc.com/",
+		"url": "https://www.harlemshakenyc.com",
 		"pos": {"lat": 40.807137, "lng": -73.946345} 
 	},
 	{
@@ -50,7 +50,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.jazzmuseuminharlem.org/",
+		"url": "https://www.jazzmuseuminharlem.org",
 		"pos": {"lat": 40.809931, "lng": -73.943116} 
 	},
 	{
@@ -59,7 +59,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10027",
-		"url": "https://www.jacobrestaurant.com/",
+		"url": "https://www.jacobrestaurant.com",
 		"pos": {"lat": 40.810345, "lng": -73.943931} 
 	},
 	{
@@ -68,7 +68,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10030",
-		"url": "https://www.shrinenyc.com/",
+		"url": "https://www.shrinenyc.com",
 		"pos": {"lat": 40.814381, "lng": -73.944135} 
 	},
 	{
@@ -85,6 +85,7 @@
 		"city": "New York",
 		"state": "NY",
 		"zip": "10030",
+		"url": "https://www.http://abyssinian.org/",
 		"pos": {"lat": 40.816853, "lng": -73.941524} 
 	},
 	{
@@ -94,5 +95,14 @@
 		"state": "NY",
 		"zip": "10027",
 		"pos": {"lat": 40.804631, "lng": -73.943673} 
+	},
+	{
+		"name": "Studio Museum",
+		"street": "144 W 125th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10027",
+		"url": "https://www.studiomuseum.org",
+		"pos": {"lat": 40.808542, "lng": -73.947702} 
 	}
 ]

@@ -39,7 +39,7 @@ export class MapDisplay extends Component {
     this.closeInfoWindow();
 
     this.setState({
-      showInfoWindow: true,
+      showingInfoWindow: true,
       activeMarker: marker,
       activeMarkerProps: props   
     });
@@ -115,7 +115,9 @@ export class MapDisplay extends Component {
         		lng: -73.950192
         	}}
           zoom={this.props.zoom}
-          onClick={this.closeInfoWindow}
+          onClick={() => {
+            this.closeInfoWindow();
+          }}
         	>
 
         <InfoWindow 
