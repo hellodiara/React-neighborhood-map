@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
-const MAP_KEY ="AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
+const MAP_KEY = "AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
+const FS_CLIENT = "PGYDOGD0NSNG5C2ESJB4HCIK2OARIE1X22WB0F5B31OAYKAS";
+const FS_SECRET = "4VNII1ZNUOVVVSCEIL2Z0OC2LJ0A53RSAN4ISPUHQRH0V1UV";
+const FS_VERSION = "20180323";
 
 export class MapDisplay extends Component {
   state = {
@@ -35,8 +38,56 @@ export class MapDisplay extends Component {
     });
   }
 
+  getBusinessInfo = (props, data) => {
+    console.log(data);
+    // search for matching place data in Foursquare and compare to data we have 
+    return data.response.venues.filter(item => item.name.includes(props.name) || props.name.includes(item.name) );
+  }
+
   onMarkerClick = (props, marker, e) => {
     this.closeInfoWindow();
+
+    // Get Foursquare data for selected place
+    let url = "https://api.foursquare.com/v2/venues/search?client_id=" + FS_CLIENT + "&client_secret=" + FS_SECRET + "&v=" + FS_VERSION + "&radius=100&ll=" + props.position.lat + "," + props.position.lng;
+    let headers = new Headers();
+    let request = new Request(url, {
+      methord: 'GET',
+      headers
+    });
+
+    // Create props for active marker
+    let activeMarkerProps;
+    fetch(request)
+      .then(response => response.json())
+      .then(result => {
+        // Get business info from Foursquare
+        let restaurant = this.getBusinessInfo(props, result);
+        activeMarkerProps = {
+          ...props,
+          foursquare: restaurant[0]
+        };
+
+        // Get list of restaurant images form Foursquare if there is
+        if (activeMarkerProps.foursquare) {
+          let url = "https://api.foursquare.com/v2/venues/" + restaurant[0].id + "/photos?client_id=" + FS_CLIENT + "&client_secret=" + FS_SECRET + "&v=" + FS_VERSION;
+          fetch(url)
+            .then(response => response.json())
+            .then(result => {
+              activeMarkerProps = {
+                ...activeMarkerProps,
+                images: result.response.photos
+              };
+              if(this.state.activeMarker)
+                this.state.activeMarker.setAnimation(null);
+              marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+              this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+            })
+        } else {
+            marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+            this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps})
+        }
+
+      })
 
     this.setState({
       showingInfoWindow: true,
