@@ -54,10 +54,19 @@ class App extends Component {
   }
 
   filterLocations = (locations, query) => {
+    // filter locations to match what you type in search
     return locations.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
   }
 
+  clickListItem = (index) => {
+    // set the state to the selected location array index
+    let newLocations = [index];
+    this.setState({ filtered: newLocations, open: !this.state.open })
+    // this.setState({ selectedIndex: index, open: !this.state.open })
+  }
+
   render = () => {
+    console.log(this.state.filtered);
     return (
       <div className="App">
         <div>
@@ -71,12 +80,15 @@ class App extends Component {
             lng={this.state.lng}
             zoom={this.state.zoom}
             locations={this.state.filtered}
+            selectedIndex={this.state.selectedIndex}
+            clickListItem={this.clickListItem}
           />
           <ListDrawer
             locations={this.state.filtered}
             open={this.state.open}
             toggleDrawer={this.toggleDrawer}
             filterLocations={this.updateQuery}
+            clickListItem={this.clickListItem}
           /> 
       </div>
     );

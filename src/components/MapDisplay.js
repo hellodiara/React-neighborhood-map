@@ -19,6 +19,12 @@ export class MapDisplay extends Component {
   componentDidMount = () => {
   }
 
+  componentDidUpdate(prevProps) {
+    if ( prevProps["locations"] !== this.props.locations ) {
+          this.updateMarkers(this.props.locations);
+    }
+  }
+
   mapReady = (props, map) => {
     this.setState({map});
     this.updateMarkers(this.props.locations);
