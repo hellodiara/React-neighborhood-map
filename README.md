@@ -19,6 +19,7 @@ To get started:
 * `$ git clone https://github.com/hellodiara/React-neighborhood-map.git` or [download](_https://github.com/hellodiara/React-neighborhood-map/archive/master.zip) the project
 * Open your command line interface and go into the project's directory `$ cd neighborhood-map`
 * Install all project dependencies with `$ npm install` . This will open the app in development mode on `localhost:3000`.
+* You must use your own map API Keys from Google and Foursquare.
 
 ## Features:
 * Map markers to identify popular locations or places
