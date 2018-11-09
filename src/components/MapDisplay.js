@@ -177,12 +177,19 @@ export class MapDisplay extends Component {
           onClose={this.closeInfoWindow}>
             <div>
               <h3>{amProps && amProps.name}</h3>
-              {amProps && amProps.url
+              {amProps && amProps.url 
                 ? (
-                    <a href={amProps.url}>See website</a>
-                )
-                : ""
-              }
+                <a href={amProps.url}>See website</a>
+                ) 
+                : ""}
+              {amProps && amProps.images 
+                ? (
+                <div><img 
+                alt={amProps.name + " place picture"}
+                src={amProps.images.items[0].prefix + "100x100" + amProps.images.items[0].suffix}
+                ></img></div>
+                ) 
+                : ""}
             </div>
         </InfoWindow>
       </Map>
