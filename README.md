@@ -34,6 +34,7 @@ To get started:
 * [Foursquare API](https://developer.foursquare.com/)
 * [NPM](https://www.npmjs.com/)
 * [Material UI](https://material-ui.com/getting-started/installation/)
+* [Font Awesome](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
 
 
 ## License
