@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   filterLocations = (locations, query) => {
-    return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
+    return locations.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
   }
 
   render = () => {

@@ -37,6 +37,7 @@ class ListDrawer extends Component {
 
 	updateQuery = (newQuery) => {
 		this.setState({ query: newQuery});
+		this.props.filterLocations(newQuery);
 	}
 
 	render = () => {
@@ -53,10 +54,10 @@ class ListDrawer extends Component {
 							value={this.state.query} 
 						/>
 						<ul style={this.styles.noBullets}>
-							{this.props.locations && this.props.locations.map((location, index) => {
+							{this.props.locations && this.props.locations.map((item, index) => {
 								return(
 									<li style={this.styles.listItem} key={index}>
-										<button style={this.styles.listLink} key={index}>{location.name}</button>
+										<button style={this.styles.listLink} key={index}>{item.name}</button>
 									</li>
 								)
 							})}
