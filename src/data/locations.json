@@ -104,5 +104,42 @@
 		"zip": "10027",
 		"url": "https://www.studiomuseum.org",
 		"pos": {"lat": 40.808542, "lng": -73.947702} 
+	},
+	{
+		"name": "The City College of New York",
+		"street": "160 Convent Ave.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10031",
+		"url": "https://www.ccny.cuny.edu",
+		"pos": {"lat": 40.820308, "lng": -73.949312} 
+	},
+	{
+		"name": "Hamilton Grange Memorial",
+		"street": "414 W. 141st.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10031",
+		"url": "https://www.nps.gov/hagr/index.htm",
+		"pos": {"lat": 40.821477, "lng": -73.947327} 
+	},
+	{
+		"name": "Amy's Ruth",
+		"street": "115 W. 116th St.",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10026",
+		"url": "http://www.amyruths.com",
+		"pos": {"lat": 40.802685, "lng": -73.950295} 
+	},
+	{
+		"name": "Harlem Tavern",
+		"street": "2153 Frederick Douglass Blvd",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10026",
+		"url": "http://www.harlemtavern.com",
+		"pos": {"lat": 40.804942, "lng": -73.955493} 
 	}
+
 ]
