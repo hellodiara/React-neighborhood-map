@@ -187,7 +187,9 @@ export class MapDisplay extends Component {
                 <div><img 
                 alt={amProps.name + " place picture"}
                 src={amProps.images.items[0].prefix + "100x100" + amProps.images.items[0].suffix}
-                ></img></div>
+                ></img>
+                <p> Image from Foursquare</p>
+                </div>
                 ) 
                 : ""}
             </div>
