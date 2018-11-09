@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-
 const MAP_KEY = "AIzaSyBIZYc3YgxTyQkZI0CDQYrEDS-FUnGJTic";
 const FS_CLIENT = "PGYDOGD0NSNG5C2ESJB4HCIK2OARIE1X22WB0F5B31OAYKAS";
 const FS_SECRET = "4VNII1ZNUOVVVSCEIL2Z0OC2LJ0A53RSAN4ISPUHQRH0V1UV";

@@ -32,10 +32,29 @@ class App extends Component {
     }
   };
 
-  toggleDrawer = () => {
+  componentDidMount = () => {
     this.setState({
-      open: !this.sate.open
+      ...this.state,
+      filtered: this.filterLocations(this.state.all, "")
     });
+  }
+
+ toggleDrawer = () => {
+    this.setState({
+      open: !this.state.open
+    });
+  } 
+
+  updateQuery = (query) => {
+    this.setState({
+      ...this.state,
+      selectedIndex: null,
+      filtered: this.filterLocations(this.state.all, query)
+    });
+  }
+
+  filterLocations = (locations, query) => {
+    return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
   }
 
   render = () => {
@@ -51,12 +70,13 @@ class App extends Component {
             lat={this.state.lat}
             lng={this.state.lng}
             zoom={this.state.zoom}
-            locations={this.state.all}
+            locations={this.state.filtered}
           />
           <ListDrawer
-            locations={this.state.all}
+            locations={this.state.filtered}
             open={this.state.open}
             toggleDrawer={this.toggleDrawer}
+            filterLocations={this.updateQuery}
           /> 
       </div>
     );
