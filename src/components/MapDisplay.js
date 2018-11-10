@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import NoMapDisplay from './NoMapDisplay';
 
 const MAP_KEY = "";
 const FS_CLIENT = "";
@@ -46,7 +47,10 @@ export class MapDisplay extends Component {
   getBusinessInfo = (props, data) => {
     console.log(data);
     // search for matching place data in Foursquare and compare to data we have 
-    return data.response.venues.filter(item => item.name.includes(props.name) || props.name.includes(item.name) );
+    if ( data.hasOwnProperty("response") && data.response.hasOwnProperty("venues") ) {
+      return data.response.venues.filter(item => item.name.includes(props.name) || props.name.includes(item.name) );
+    }
+    return data
   }
 
   onMarkerClick = (props, marker, e) => {
@@ -204,6 +208,4 @@ export class MapDisplay extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: MAP_KEY
-})(MapDisplay)
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainer: NoMapDisplay})(MapDisplay)
