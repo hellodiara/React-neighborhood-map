@@ -11,6 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [Application Features](#features)
 * [Dependencies](#dependencies)
 * [License](#license)
+* [Service Worker](#service-worker)
 
 ## Install
 
@@ -37,6 +38,8 @@ To get started:
 * [Material UI](https://material-ui.com/getting-started/installation/)
 * [Font Awesome](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
 
+## Service Worker:
+The service worker only works in production mode.
 
 ## License
 Neighborhood Map is under the MIT license
