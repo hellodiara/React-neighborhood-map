@@ -5,7 +5,6 @@ A single-page React application featuring a map of Harlem, NYC, markers highligh
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
-
 ### Table of contents
 * [How-To-Install](#install)
 * [Application Features](#features)
@@ -19,7 +18,8 @@ To get started:
 
 * `$ git clone https://github.com/hellodiara/React-neighborhood-map.git` or [download](_https://github.com/hellodiara/React-neighborhood-map/archive/master.zip) the project
 * Open your command line interface and go into the project's directory `$ cd neighborhood-map`
-* Install all project dependencies with `$ npm install` . This will open the app in development mode on `localhost:3000`.
+* Install all project dependencies with `$ npm install` . 
+* Run `npm start` .This will open the app in development mode on `localhost:3000`.
 * You must use your own API Keys from Google and Foursquare for the map and image data.
 
 ## Features:
@@ -40,6 +40,10 @@ To get started:
 
 ## Service Worker:
 The service worker only works in production mode.
+Run it using the following commmands:
+* `npm run serve`
+* `serve -s build`
+* And then visit `localhost:5000`
 
 ## License
 Neighborhood Map is under the MIT license
