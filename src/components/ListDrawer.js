@@ -40,6 +40,13 @@ class ListDrawer extends Component {
 		this.props.filterLocations(newQuery);
 	}
 
+	 onListButtonClicked = (item) => {
+      this.setState({
+        showingInfoWindow: true,
+        activeMarker: null
+      })
+  };
+
 	render = () => {
 		return (
 			<div>
@@ -56,8 +63,24 @@ class ListDrawer extends Component {
 						<ul style={this.styles.noBullets}>
 							{this.props.locations && this.props.locations.map((item, index) => {
 								return(
-									<li style={this.styles.listItem} key={index}>
-										<button style={this.styles.listLink} key={index} onClick={e => this.props.clickListItem(item)}>{item.name}</button>
+									<li style={this.styles.listItem} key={index} aria-labelledby="venuesList">
+										<button style={this.styles.listLink} key={index} onClick={() => {
+											this.props.clickListItem(item);
+											let mProps = {
+											        key: index,
+											        index,
+											        name: item.name,
+											        position: item.pos,
+											        url: item.url
+											      };
+											let animation = this.props.google.maps.Animation.DROP;
+											let marker = new this.props.google.maps.Marker({
+														  		position: item.pos,
+														        map: this.props.map,
+														        animation
+														});
+									        this.props.onMarkerClick(mProps, marker, null);
+										}}>{item.name}</button>
 									</li>
 								)
 							})}
@@ -72,4 +95,4 @@ class ListDrawer extends Component {
 	}
 }
 
-export default ListDrawer
+export default ListDrawer;

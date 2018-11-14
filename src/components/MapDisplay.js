@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import NoMapDisplay from './NoMapDisplay';
+import {MAP_KEY} from "../constants";
+import {FS_VERSION} from "../constants";
+import {FS_SECRET} from "../constants";
+import {FS_CLIENT} from "../constants";
 
-const MAP_KEY = "";
-const FS_CLIENT = "";
-const FS_SECRET = "";
-const FS_VERSION = "";
 
 export class MapDisplay extends Component {
-  state = {
-    map: null,
-    markers: [], // List all the markers
-    markerProps: [], // List all the props for each markers
-    activeMarker: null,
-    activeMarkerProps: null,
-    showingInfoWindow: false,
-  };
 
-  componentDidMount = () => {
+  componentDidMount() {
+    this.updateMarkers(this.props.locations);
+    // Google Map error handling
+    window.gm_authFailure = () => {
+         alert('ERROR!! \n API has failed. Map could not load.')
+         console.log('ERROR!! \nAPI has failed. Map could not load.')
+      }
   }
-
+  
   componentDidUpdate(prevProps) {
     if ( prevProps["locations"] !== this.props.locations ) {
           this.updateMarkers(this.props.locations);
@@ -27,82 +25,17 @@ export class MapDisplay extends Component {
   }
 
   mapReady = (props, map) => {
-    this.setState({map});
+    this.props.updateMap(map);
     this.updateMarkers(this.props.locations);
   }
 
   closeInfoWindow = () => {
-    this.state.activeMarker && this
-      .state
+    this.props.activeMarker && this
+      .props
       .activeMarker
       .setAnimation(null);
 
-    this.setState({
-      showingInfoWindow: false,
-      activeMarker: null,
-      activeMarkerProps: null
-    });
-  }
-
-  getBusinessInfo = (props, data) => {
-    console.log(data);
-    // search for matching place data in Foursquare and compare to data we have 
-    if ( data.hasOwnProperty("response") && data.response.hasOwnProperty("venues") ) {
-      return data.response.venues.filter(item => item.name.includes(props.name) || props.name.includes(item.name) );
-    }
-    return data
-  }
-
-  onMarkerClick = (props, marker, e) => {
-    this.closeInfoWindow();
-
-    // Get Foursquare data for selected place
-    let url = "https://api.foursquare.com/v2/venues/search?client_id=" + FS_CLIENT + "&client_secret=" + FS_SECRET + "&v=" + FS_VERSION + "&radius=100&ll=" + props.position.lat + "," + props.position.lng;
-    let headers = new Headers();
-    let request = new Request(url, {
-      methord: 'GET',
-      headers
-    });
-
-    // Create props for active marker
-    let activeMarkerProps;
-    fetch(request)
-      .then(response => response.json())
-      .then(result => {
-        // Get business info from Foursquare
-        let restaurant = this.getBusinessInfo(props, result);
-        activeMarkerProps = {
-          ...props,
-          foursquare: restaurant[0]
-        };
-
-        // Get list of restaurant images form Foursquare if there is
-        if (activeMarkerProps.foursquare) {
-          let url = "https://api.foursquare.com/v2/venues/" + restaurant[0].id + "/photos?client_id=" + FS_CLIENT + "&client_secret=" + FS_SECRET + "&v=" + FS_VERSION;
-          fetch(url)
-            .then(response => response.json())
-            .then(result => {
-              activeMarkerProps = {
-                ...activeMarkerProps,
-                images: result.response.photos
-              };
-              if(this.state.activeMarker)
-                this.state.activeMarker.setAnimation(null);
-              marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-              this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
-            })
-        } else {
-            marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
-            this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps})
-        }
-
-      })
-
-    this.setState({
-      showingInfoWindow: true,
-      activeMarker: marker,
-      activeMarkerProps: props   
-    });
+    this.props.toggleShowingInfoWindow(false);
   }
 
   updateMarkers = (locations) => {
@@ -110,10 +43,7 @@ export class MapDisplay extends Component {
       return;
 
     // remove markers from map
-    this
-      .state
-      .markers
-      .forEach(marker => marker.setMap(null));
+    this.props.markers.forEach(marker => marker.setMap(null));
 
     let markerProps = [];
     let markers = locations.map((item, index) => {
@@ -129,24 +59,24 @@ export class MapDisplay extends Component {
       let animation = this.props.google.maps.Animation.DROP;
       let marker = new this.props.google.maps.Marker({
         position: item.pos,
-        map: this.state.map,
+        map: this.props.map,
         animation
       });
       marker.addListener('click', () => {
-        this.onMarkerClick(mProps, marker, null);
+        this.props.onMarkerClick(mProps, marker, null);
       });
       return marker;
     })
-    this.setState({markers, markerProps});
+
+    this.props.updateMarkers(markers);
+    this.props.updateMarkerProps(markers);
   }
 
 
   onMapClicked = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
+    if (this.props.showingInfoWindow) {
+      this.props.toggleShowingInfoWindow(false);
+      this.props.updateActiveMarker(null);
     }
   };
 
@@ -161,7 +91,7 @@ export class MapDisplay extends Component {
       lng: this.props.lon
     }
 
-    let amProps = this.state.activeMarkerProps;
+    let amProps = this.props.activeMarkerProps;
 
     return (
         <Map 
@@ -181,8 +111,8 @@ export class MapDisplay extends Component {
         	>
 
         <InfoWindow 
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
+          marker={this.props.activeMarker}
+          visible={this.props.showingInfoWindow}
           onClose={this.closeInfoWindow}>
             <div>
               <h3>{amProps && amProps.name}</h3>
